@@ -3,15 +3,26 @@ package com.example.hello.servlet.basic;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
+//servlet 이름, url매핑 -> 중복 xxxxx
 @WebServlet(name = "helloServlet", urlPatterns = "/hello")
-public class HelloServlet {
+public class HelloServlet extends HttpServlet {
 
     @Override
-    protected void Service(HttpServletRequest req, HttpServletResponse response) throws ServletException {
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("HelloServlet.service");
+        System.out.println("request = " + request);
+        System.out.println("response = " + response);
 
+        String username = request.getParameter("username");
+        System.out.println("username = " + username);
+
+        response.setContentType("text/plain");
+        response.setCharacterEncoding("utf-8");
+        response.getWriter().write("hello " + username);
     }
-
 }
