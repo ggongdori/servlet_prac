@@ -26,6 +26,8 @@ public class ResponseHeaderServlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
         writer.println("안녕하세요");
     }
+    
+    //content 편의 메소드
     private void content(HttpServletResponse response) {
 //Content-Type: text/plain;charset=utf-8
 //Content-Length: 2
@@ -34,6 +36,8 @@ public class ResponseHeaderServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 //response.setContentLength(2); //(생략시 자동 생성)
     }
+    
+    //쿠키 편의 메소드
     private void cookie(HttpServletResponse response) {
 //Set-Cookie: myCookie=good; Max-Age=600;
 //response.setHeader("Set-Cookie", "myCookie=good; Max-Age=600");
