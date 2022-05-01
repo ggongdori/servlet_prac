@@ -46,6 +46,7 @@ public class ResponseHeaderServlet extends HttpServlet {
         response.addCookie(cookie);
     }
 
+    //redirect 편의 메소드
     private void redirect(HttpServletResponse response) throws IOException {
 //Status Code 302
 //Location: /basic/hello-form.html
